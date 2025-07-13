@@ -6,6 +6,26 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    title: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    genre: {
+        type: String,
+        required: true
+    },
+    releaseDate: {
+        type: Date
+    },
+
+    imageUrl: {
+        type: String
+    },
+    createdBy: { type: mongoose.Types.ObjectId, ref: 'User' },
     likes: [{
         type: ObjectId,
         ref: "User"
