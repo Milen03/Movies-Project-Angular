@@ -1,0 +1,102 @@
+.hero-section-dark {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, #000 70%, #430505 100%);
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.hero-section-dark::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, #b91c1c 0%, transparent 75%);
+  filter: blur(60px);
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.hero-container-dark {
+  max-width: 700px;
+  padding: 0 24px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-section-dark h1 {
+  font-size: 2.7rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 22px;
+  letter-spacing: 1.5px;
+}
+.accent-red {
+  color: #ef4444;
+  font-weight: bold;
+  text-shadow: 0 2px 8px #7f1d1d99;
+}
+.red-text {
+  color: #b91c1c;
+  font-weight: bold;
+  text-shadow: 0 1px 5px #ef444455;
+}
+.subtitle-dark {
+  font-size: 1.18rem;
+  color: #ffdadad8;
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+.hero-buttons-dark {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.btn-red {
+  display: inline-block;
+  padding: 13px 34px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ef4444 40%, #7f1d1d 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #ef444455;
+  border: none;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.12s;
+}
+.btn-red:hover {
+  background: linear-gradient(90deg, #b91c1c 40%, #991b1b 100%);
+  box-shadow: 0 6px 16px #b91c1c88;
+  transform: translateY(-2px) scale(1.04);
+}
+.btn-outline-red {
+  display: inline-block;
+  padding: 13px 34px;
+  border-radius: 8px;
+  background: none;
+  color: #ef4444;
+  border: 2px solid #ef4444;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #ef444455;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-outline-red:hover {
+  background: #ef4444;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .hero-section-dark h1 {
+    font-size: 2rem;
+  }
+}
