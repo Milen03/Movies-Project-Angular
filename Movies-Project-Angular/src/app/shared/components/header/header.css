@@ -1,0 +1,21 @@
+.main-nav {
+  display: flex;
+  gap: 20px;
+  background: #222;
+  padding: 16px 32px;
+  align-items: center;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.main-nav a:hover {
+  background: #e50914;
+  color: #fff;
+}
