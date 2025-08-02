@@ -1,6 +1,7 @@
 import { Injectable, signal } from "@angular/core";
 import { User } from "../models/user.model";
 import { HttpClient } from "@angular/common/http";
+import { Observable, tap } from "rxjs";
 
 
 
@@ -27,4 +28,20 @@ export class AuthService {
         }
     }
 }
+
+login(email:string,password:string):Observable<User> {
+return this.httpClient.post<User>(`${this.apiUrl}/login`, { email, password },{
+    withCredentials: true
+  }).pipe(
+    tap(user => {
+      this._currentUser.set(user);
+      this._isLoggedIn.set(true);
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+      }
+    })
+  )
 }
+}
+
+
