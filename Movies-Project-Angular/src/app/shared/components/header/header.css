@@ -1,7 +1,7 @@
 .main-nav {
   display: flex;
   gap: 20px;
-  background: #222;
+  background: black;
   padding: 16px 32px;
   align-items: center;
 }
@@ -17,5 +17,5 @@
 
 .main-nav a:hover {
   background: #e50914;
-  color: #fff;
+  color: black;
 }
