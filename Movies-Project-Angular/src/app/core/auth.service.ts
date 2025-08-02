@@ -42,6 +42,19 @@ return this.httpClient.post<User>(`${this.apiUrl}/login`, { email, password },{
     })
   )
 }
+
+logout(): Observable<void> {
+  return this.httpClient.post<void>(`${this.apiUrl}/logout`, {}, {
+    withCredentials: true
+  }).pipe(
+    tap(() => {
+      this._currentUser.set(null);
+      this._isLoggedIn.set(false);
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.removeItem('currentUser');
+      }
+    })
+  );
 }
 
-
+}
