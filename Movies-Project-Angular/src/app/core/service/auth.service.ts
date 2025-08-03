@@ -1,5 +1,5 @@
 import { Injectable, signal } from "@angular/core";
-import { User } from "../models/user.model";
+import { User } from "../../models/user.model";
 import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
 
