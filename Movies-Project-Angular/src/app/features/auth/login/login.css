@@ -1,0 +1,90 @@
+.login {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #181818;
+  padding: 32px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  color: #fff;
+}
+
+.login h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #e50914;
+  letter-spacing: 1px;
+}
+
+.field {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-icon label {
+  min-width: 32px;
+  text-align: center;
+  color: #e50914;
+}
+
+.field-icon input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #222;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.field-icon input.input-error {
+  border: 1.5px solid #e50914;
+  background: #2a0000;
+}
+
+.field-icon input:focus {
+  border: 1.5px solid #e50914;
+}
+
+.error {
+  color: #e50914;
+  font-size: 0.95em;
+  margin: 0 0 0 40px;
+}
+
+button[type="submit"], button {
+  width: 100%;
+  background: #e50914;
+  color: #fff;
+  border: none;
+  padding: 12px 0;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+button[disabled] {
+  background: #444;
+  cursor: not-allowed;
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 18px;
+}
+
+a {
+  color: #e50914;
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
