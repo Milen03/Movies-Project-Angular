@@ -3,9 +3,14 @@
     <li><a routerLink="/home">Home</a></li>
     <li><a routerLink="/movies">Movies</a></li>
     <li><a routerLink="/create-movie">Create Movie</a></li>
-    <li><a routerLink="/profile">Profile</a></li>
-    <li><a routerLink="/login">Login</a></li>
-    <li><a routerLink="/register">Register</a></li>
-    <li><a (click)="logout()">Logout</a></li>
+
+    <ng-container *ngIf="!isLoggedIn(); else loggedIn">
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/register">Register</a></li>
+    </ng-container>
+    <ng-template #loggedIn>
+      <li><a routerLink="/profile">Profile</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+    </ng-template>
   </ul>
 </nav>
