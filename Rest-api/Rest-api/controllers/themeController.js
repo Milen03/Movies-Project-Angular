@@ -1,5 +1,5 @@
 const { themeModel } = require('../models');
-const { newPost } = require('./postController')
+const { newPost } = require('./movieController')
 
 function getThemes(req, res, next) {
     themeModel.find()

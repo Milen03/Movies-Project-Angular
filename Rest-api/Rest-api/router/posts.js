@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const { auth } = require('../utils');
-const { postController } = require('../controllers');
+const moviesController = require('../controllers/moviesController');
 
-// middleware that is specific to this router
+router.get('/', moviesController.getAllMovies);
+router.get('/:id', moviesController.getMovieById);
+router.post('/', auth(), moviesController.createMovie);
+router.put('/:id', auth(), moviesController.updateMovie);
+router.delete('/:id', auth(), moviesController.deleteMovie);
+router.put('/:id/like', auth(), moviesController.likeMovie);
 
-router.get('/', postController.getLatestsPosts);
-
-module.exports = router
+module.exports = router;

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema.Types;
 
-const postSchema = new mongoose.Schema({
+const movieSchema = new mongoose.Schema({
 
     title: {
         type: String,
@@ -34,4 +34,4 @@ const postSchema = new mongoose.Schema({
 
 }, { timestamps: { createdAt: 'created_at' } });
 
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Movie', movieSchema);

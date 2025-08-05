@@ -1,7 +1,7 @@
-const { userModel, themeModel, postModel } = require('../models');
+const { userModel, themeModel, movieModel } = require('../models');
 
 function newPost(text, userId, themeId) {
-    return postModel.create({ text, userId, themeId })
+    return movieModel.create({ text, userId, themeId })
         .then(post => {
             return Promise.all([
                 userModel.updateOne({ _id: userId }, { $push: { posts: post._id }, $addToSet: { themes: themeId } }),
@@ -10,10 +10,10 @@ function newPost(text, userId, themeId) {
         })
 }
 
-function getLatestsPosts(req, res, next) {
+function getLatestsMovie(req, res, next) {
     const limit = Number(req.query.limit) || 0;
 
-    postModel.find()
+    movieModel.find()
         .sort({ created_at: -1 })
         .limit(limit)
         .populate('themeId userId')
@@ -23,7 +23,7 @@ function getLatestsPosts(req, res, next) {
         .catch(next);
 }
 
-function createPost(req, res, next) {
+function createMovie(req, res, next) {
     const { themeId } = req.params;
     const { _id: userId } = req.user;
     const { postText } = req.body;
@@ -33,13 +33,13 @@ function createPost(req, res, next) {
         .catch(next);
 }
 
-function editPost(req, res, next) {
+function editMovie(req, res, next) {
     const { postId } = req.params;
     const { postText } = req.body;
     const { _id: userId } = req.user;
 
     // if the userId is not the same as this one of the post, the post will not be updated
-    postModel.findOneAndUpdate({ _id: postId, userId }, { text: postText }, { new: true })
+    movieModel.findOneAndUpdate({ _id: postId, userId }, { text: postText }, { new: true })
         .then(updatedPost => {
             if (updatedPost) {
                 res.status(200).json(updatedPost);
@@ -51,12 +51,12 @@ function editPost(req, res, next) {
         .catch(next);
 }
 
-function deletePost(req, res, next) {
+function deleteMovie(req, res, next) {
     const { postId, themeId } = req.params;
     const { _id: userId } = req.user;
 
     Promise.all([
-        postModel.findOneAndDelete({ _id: postId, userId }),
+        movieModel.findOneAndDelete({ _id: postId, userId }),
         userModel.findOneAndUpdate({ _id: userId }, { $pull: { posts: postId } }),
         themeModel.findOneAndUpdate({ _id: themeId }, { $pull: { posts: postId } }),
     ])
@@ -76,16 +76,16 @@ function like(req, res, next) {
 
     console.log('like')
 
-    postModel.updateOne({ _id: postId }, { $addToSet: { likes: userId } }, { new: true })
+    movieModel.updateOne({ _id: postId }, { $addToSet: { likes: userId } }, { new: true })
         .then(() => res.status(200).json({ message: 'Liked successful!' }))
         .catch(next)
 }
 
 module.exports = {
-    getLatestsPosts,
+    getLatestsMovie,
     newPost,
-    createPost,
-    editPost,
-    deletePost,
+    createMovie,
+    editMovie,
+    deleteMovie,
     like,
 }
