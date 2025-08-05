@@ -19,7 +19,15 @@ export const routes: Routes = [
         loadComponent: () => import('./features/auth/register/register').then(c => c.Register)
     },
     {
-         path: 'logout',
+        path: 'create',
+        loadComponent: () => import('./features/movies/create/create').then(c => c.Create)
+    },
+    {
+        path: 'movies',
+        loadComponent: () => import('./features/movies/movies/movies').then(c => c.Movies)
+    },
+    {
+        path: 'logout',
         redirectTo: '/home',
         pathMatch: 'full'
     }

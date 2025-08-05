@@ -1,1 +1,19 @@
-<p>create works!</p>
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <input formControlName="title" placeholder="Title" />
+  <div *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched">Title is required.</div>
+
+  <input formControlName="genre" placeholder="Genre" />
+  <div *ngIf="createForm.get('genre')?.invalid && createForm.get('genre')?.touched">Genre is required.</div>
+
+  <input formControlName="releaseDate" type="date" placeholder="Release Date" />
+  <div *ngIf="createForm.get('releaseDate')?.invalid && createForm.get('releaseDate')?.touched">Release date is required.</div>
+
+  <textarea formControlName="description" placeholder="Description"></textarea>
+  <div *ngIf="createForm.get('description')?.invalid && createForm.get('description')?.touched">Description is required (min 10 chars).</div>
+
+  <input formControlName="imageUrl" placeholder="Image URL" />
+  <div *ngIf="createForm.get('imageUrl')?.invalid && createForm.get('imageUrl')?.touched">Image URL is required.</div>
+
+  <button type="submit" [disabled]="createForm.invalid">Create</button>
+  <button type="button" (click)="onCansel()">Cancel</button>
+</form>

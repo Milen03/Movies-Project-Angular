@@ -1,0 +1,63 @@
+form {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #181818;
+  padding: 32px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #222;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+input:focus, textarea:focus {
+  border: 1.5px solid #e50914;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+div[ng-reflect-ng-if] {
+  color: #e50914;
+  font-size: 0.95em;
+  margin: -10px 0 8px 0;
+}
+
+button[type="submit"], button[type="button"] {
+  width: 100%;
+  background: #e50914;
+  color: #fff;
+  border: none;
+  padding: 12px 0;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background 0.2s;
+}
+
+button[type="button"] {
+  background: #444;
+  margin-top: 0;
+}
+
+button[disabled] {
+  background: #444;
+  cursor: not-allowed;
+}

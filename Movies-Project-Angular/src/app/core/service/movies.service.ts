@@ -18,7 +18,9 @@ export class MoviesService {
   }
 
   create(movie: Partial<Movie>): Observable<Movie> {
-    return this.httpClient.post<Movie>(this.apiUrl, movie);
+    return this.httpClient.post<Movie>(this.apiUrl, movie,{
+        withCredentials: true
+    });
   }
 
   update(id: string, movie: Partial<Movie>): Observable<Movie> {

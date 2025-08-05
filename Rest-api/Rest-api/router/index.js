@@ -11,7 +11,7 @@ router.post('/login', authController.login);
 router.post('/logout', authController.logout);
 
 router.use('/users', users);
-router.use('/themes', themes);
+// router.use('/themes', themes);
 router.use('/movie', movie);
 router.use('/likes', likes);
 router.use('/test', test);

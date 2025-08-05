@@ -23,13 +23,26 @@ function getLatestsMovie(req, res, next) {
         .catch(next);
 }
 
-function createMovie(req, res, next) {
-    const { themeId } = req.params;
-    const { _id: userId } = req.user;
-    const { postText } = req.body;
 
-    newPost(postText, userId, themeId)
-        .then(([_, updatedTheme]) => res.status(200).json(updatedTheme))
+function getMovieById(req, res, next) {
+    const { id } = req.params;
+    movieModel.findById(id)
+        .then(movie => {
+            if (movie) {
+                res.status(200).json(movie);
+            } else {
+                res.status(404).json({ message: 'Movie not found!' });
+            }
+        })
+        .catch(next);
+}
+
+function createMovie(req, res, next) {
+    const { title, genre, releaseDate, description, imageUrl } = req.body;
+    const { _id: userId } = req.user;
+
+    movieModel.create({ title, genre, releaseDate, description, imageUrl, createdBy: userId })
+        .then(movie => res.status(201).json(movie))
         .catch(next);
 }
 
@@ -84,6 +97,7 @@ function like(req, res, next) {
 module.exports = {
     getLatestsMovie,
     newPost,
+    getMovieById,
     createMovie,
     editMovie,
     deleteMovie,
