@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule],
   templateUrl: './movies.html',
   styleUrl: './movies.css'
 })

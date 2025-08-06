@@ -1,1 +1,9 @@
-<p>movies works!</p>
+<div class="movies-list">
+  <div class="movie-card" *ngFor="let movie of movies$ | async">
+    <img [src]="movie.imageUrl" [alt]="movie.title" class="movie-img" />
+    <div class="movie-info">
+      <h3>{{ movie.title }}</h3>
+      <span class="genre">Genre: {{ movie.genre }}</span>
+    </div>
+  </div>
+</div>
