@@ -16,7 +16,7 @@ function getLatestsMovie(req, res, next) {
     movieModel.find()
         .sort({ created_at: -1 })
         .limit(limit)
-        .populate('themeId userId')
+        .populate('userId')
         .then(posts => {
             res.status(200).json(posts)
         })
@@ -47,33 +47,31 @@ function createMovie(req, res, next) {
 }
 
 function editMovie(req, res, next) {
-    const { postId } = req.params;
-    const { postText } = req.body;
+    const { id } = req.params;
+    const { title, genre, releaseDate, description, imageUrl } = req.body;
     const { _id: userId } = req.user;
 
-    // if the userId is not the same as this one of the post, the post will not be updated
-    movieModel.findOneAndUpdate({ _id: postId, userId }, { text: postText }, { new: true })
-        .then(updatedPost => {
-            if (updatedPost) {
-                res.status(200).json(updatedPost);
-            }
-            else {
-                res.status(401).json({ message: `Not allowed!` });
-            }
-        })
-        .catch(next);
+    movieModel.findOneAndUpdate(
+        { _id: id, createdBy: userId },
+        { title, genre, releaseDate, description, imageUrl },
+        { new: true }
+    )
+    .then(updatedMovie => {
+        if (updatedMovie) {
+            res.status(200).json(updatedMovie);
+        } else {
+            res.status(401).json({ message: `Not allowed!` });
+        }
+    })
+    .catch(next);
 }
 
 function deleteMovie(req, res, next) {
-    const { postId, themeId } = req.params;
+    const { id } = req.params;
     const { _id: userId } = req.user;
 
-    Promise.all([
-        movieModel.findOneAndDelete({ _id: postId, userId }),
-        userModel.findOneAndUpdate({ _id: userId }, { $pull: { posts: postId } }),
-        themeModel.findOneAndUpdate({ _id: themeId }, { $pull: { posts: postId } }),
-    ])
-        .then(([deletedOne, _, __]) => {
+    movieModel.findOneAndDelete({ _id: id, createdBy: userId })
+        .then(deletedOne => {
             if (deletedOne) {
                 res.status(200).json(deletedOne)
             } else {
@@ -84,16 +82,13 @@ function deleteMovie(req, res, next) {
 }
 
 function like(req, res, next) {
-    const { postId } = req.params;
+    const { id } = req.params;
     const { _id: userId } = req.user;
 
-    console.log('like')
-
-    movieModel.updateOne({ _id: postId }, { $addToSet: { likes: userId } }, { new: true })
+    movieModel.updateOne({ _id: id }, { $addToSet: { likes: userId } }, { new: true })
         .then(() => res.status(200).json({ message: 'Liked successful!' }))
         .catch(next)
 }
-
 module.exports = {
     getLatestsMovie,
     newPost,
