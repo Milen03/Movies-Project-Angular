@@ -1,16 +1,22 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable, tap } from "rxjs";
 import { Movie } from "../../models/movies.model";
 
 @Injectable({ providedIn: 'root' })
 export class MoviesService {
   private apiUrl = 'http://localhost:3000/api/movie';
+  private moviesBehaviorSubject = new BehaviorSubject<Movie[]>([]);
+   public movies$ = this.moviesBehaviorSubject.asObservable();
 
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(this.apiUrl);
+    return this.httpClient.get<Movie[]>(this.apiUrl,{
+        withCredentials: true
+    }).pipe(
+        tap((movies: Movie[]) =>  this.moviesBehaviorSubject.next(movies))
+    );
   }
 
   getById(id: string): Observable<Movie> {
