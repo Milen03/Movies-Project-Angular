@@ -1,4 +1,4 @@
-<div class="movie-details" *ngIf="movie$ | async as movie">
+<div class="movie-details" *ngIf="movie$ | async as movie" >
   <img [src]="movie.imageUrl" [alt]="movie.title" class="movie-img" />
   <div class="info">
     <h2>{{ movie.title }}</h2>

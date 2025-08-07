@@ -1,5 +1,5 @@
 <div class="movies-list">
-  <div class="movie-card" *ngFor="let movie of movies$ | async">
+  <div class="movie-card" *ngFor="let movie of movies$ | async" (click)="goToDetails(movie._id)" style="cursor: pointer;">
     <img [src]="movie.imageUrl" [alt]="movie.title" class="movie-img" />
     <div class="movie-info">
       <h3>{{ movie.title }}</h3>
