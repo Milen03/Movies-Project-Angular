@@ -24,7 +24,11 @@ export const routes: Routes = [
     },
     {
         path: 'movies',
-        loadComponent: () => import('./features/movies/movies/movies').then(c => c.Movies)
+        loadComponent: () => import('./features/movies/movies-catalog/movies').then(c => c.Movies)
+    },
+    {
+        path: 'movies/:id',
+        loadComponent: () => import('./features/movies/movies-item/movies-item').then(c => c.MoviesItem)
     },
     {
         path: 'logout',

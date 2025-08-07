@@ -1,0 +1,10 @@
+<div class="movie-details" *ngIf="movie$ | async as movie">
+  <img [src]="movie.imageUrl" [alt]="movie.title" class="movie-img" />
+  <div class="info">
+    <h2>{{ movie.title }}</h2>
+    <p><strong>Genre:</strong> {{ movie.genre }}</p>
+    <p><strong>Release Date:</strong> {{ movie.releaseDate | date }}</p>
+    <p><strong>Description:</strong> {{ movie.description }}</p>
+    <a routerLink="/movies">Back to Movies</a>
+  </div>
+</div>

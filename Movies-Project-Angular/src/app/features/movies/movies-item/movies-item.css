@@ -1,0 +1,33 @@
+.movie-details {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #181818;
+  padding: 32px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  color: #fff;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+.movie-img {
+  width: 260px;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #222;
+}
+.info {
+  flex: 1;
+}
+.info h2 {
+  margin-top: 0;
+  color: #e50914;
+}
+a {
+  color: #e50914;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
