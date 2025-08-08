@@ -20,7 +20,9 @@ export class MoviesService {
   }
 
   getById(id: string): Observable<Movie> {
-    return this.httpClient.get<Movie>(`${this.apiUrl}/${id}`);
+    return this.httpClient.get<Movie>(`${this.apiUrl}/${id}`,{
+        withCredentials: true
+    });
   }
 
   create(movie: Partial<Movie>): Observable<Movie> {
@@ -30,11 +32,15 @@ export class MoviesService {
   }
 
   update(id: string, movie: Partial<Movie>): Observable<Movie> {
-    return this.httpClient.put<Movie>(`${this.apiUrl}/${id}`, movie);
+    return this.httpClient.put<Movie>(`${this.apiUrl}/${id}`, movie ,{
+        withCredentials: true
+    });
   }
 
   delete(id: string): Observable<any> {
-    return this.httpClient.delete(`${this.apiUrl}/${id}`);
+    return this.httpClient.delete(`${this.apiUrl}/${id}`,{
+        withCredentials: true
+    });
   }
 
   like(id: string): Observable<any> {

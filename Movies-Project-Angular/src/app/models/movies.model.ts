@@ -5,6 +5,6 @@ export interface Movie {
   releaseDate: Date | string;
   description: string;
   imageUrl: string;
-  createdBy: string;
+  createdBy: string ;
   likes?: string[];
 }

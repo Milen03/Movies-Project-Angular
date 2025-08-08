@@ -31,3 +31,38 @@ a {
 a:hover {
   text-decoration: underline;
 }
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.actions button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.actions button:first-child {
+  background-color: #007bff; /* син за Edit */
+  color: white;
+}
+
+.actions button:first-child:hover {
+  background-color: #0056b3;
+  color: black;
+}
+
+.actions button:last-child {
+  background-color: #e50914; /* червен за Delete */
+  color: white;
+}
+
+.actions button:last-child:hover {
+  background-color: #b00610;
+  color: black;
+}
