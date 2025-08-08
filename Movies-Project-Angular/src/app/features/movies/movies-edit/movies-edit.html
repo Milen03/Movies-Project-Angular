@@ -1,0 +1,35 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <input formControlName="title" placeholder="Title" />
+  <div *ngIf="editForm.get('title')?.invalid && editForm.get('title')?.touched">
+    Title is required.
+  </div>
+
+  <input formControlName="genre" placeholder="Genre" />
+  <div *ngIf="editForm.get('genre')?.invalid && editForm.get('genre')?.touched">
+    Genre is required.
+  </div>
+
+  <input formControlName="releaseDate" type="date" placeholder="Release Date" />
+  <div *ngIf="editForm.get('releaseDate')?.invalid && editForm.get('releaseDate')?.touched">
+    Release date is required.
+  </div>
+
+  <textarea formControlName="description" placeholder="Description"></textarea>
+  <div *ngIf="editForm.get('description')?.invalid && editForm.get('description')?.touched">
+    Description is required (min 10 chars).
+  </div>
+
+  <input formControlName="imageUrl" placeholder="Image URL" />
+  <div *ngIf="editForm.get('imageUrl')?.invalid && editForm.get('imageUrl')?.touched">
+    Image URL is required.
+  </div>
+
+  <!-- Preview на постера -->
+  <div *ngIf="editForm.get('imageUrl')?.value as url" style="margin:10px 0;">
+    <img [src]="url" alt="Poster preview" style="max-width:200px; border-radius:6px;" />
+  </div>
+
+  <button type="submit" [disabled]="editForm.invalid">Save</button>
+  <button type="button" (click)="onCancel()">Cancel</button>
+</form>
+
