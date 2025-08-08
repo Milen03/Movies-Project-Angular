@@ -6,7 +6,7 @@
     <p><strong>Release Date:</strong> {{ movie.releaseDate | date }}</p>
     <p><strong>Description:</strong> {{ movie.description }}</p>
 
-    <div class="actions" *ngIf="isOwner(movie)">
+    <div class="actions" [@if]="isOwner(movie)">
       <button (click)="onEdit(movie)">Edit</button>
       <button (click)="onDelete(movie)">Delete</button>
     </div>
