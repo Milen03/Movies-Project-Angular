@@ -35,6 +35,10 @@ export const routes: Routes = [
         loadComponent: () => import('./features/movies/movies-edit/movies-edit').then(c => c.MoviesEdit)
     },
     {
+        path: 'profile',
+        loadComponent: () => import('./features/profile/profile/profile').then(c => c.Profile)
+    },
+    {
         path: 'logout',
         redirectTo: '/home',
         pathMatch: 'full'

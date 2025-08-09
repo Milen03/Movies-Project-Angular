@@ -60,7 +60,7 @@ getCurrentUserId(): string | null {
 }
 
 update(user:User): Observable<User> {
-    return this.httpClient.put<User>(`${this.apiUrl}/users/${user._id}`,{
+    return this.httpClient.put<User>(`${this.apiUrl}/users/profile`,{
         _id: user._id,
         username: user.username,
         email: user.email,
