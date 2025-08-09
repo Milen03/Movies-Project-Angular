@@ -18,19 +18,28 @@ The application includes a frontend (Angular) and a backend (Node.js + Express).
 
 Clone the repository:
 
-```bash
-git clone https://github.com/your-username/movies-project.git
 
+```bash
+
+git clone https://github.com/your-username/movies-project.git
+```
+
+This is for Back-end install
+```bash
+cd Rest-api
+cd Rest-api
+npm install
+npm start
+```
+For Front-End install
+```bash
+
+For Front-End 
 cd Movies-Project-Angular
 npm install
-
-
-cd server
-npm install
-
 ng serve
+```
 
-npm start
 
 
 Technologies Used
