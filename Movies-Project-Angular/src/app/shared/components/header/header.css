@@ -30,3 +30,7 @@
   background: #e50914;
   color: black;
 }
+
+.main-nav li.right {
+  margin-left: auto;
+}
