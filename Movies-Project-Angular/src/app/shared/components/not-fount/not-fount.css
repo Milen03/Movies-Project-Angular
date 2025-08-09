@@ -1,0 +1,58 @@
+:root{
+  --bg: #0f0f10;        /* тъмен фон */
+  --fg: #e6e6e6;        /* текст */
+  --accent: #e50914;    /* червено */
+  --muted: #2a2a2d;
+}
+
+.not-found{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(60% 60% at 50% 40%, #151517, #0b0b0c) no-repeat,
+              linear-gradient(135deg, #0b0b0c 70%, #2b0a0a 100%);
+  color: var(--fg);
+}
+
+.error-container{
+  text-align: center;
+  padding: 32px 24px;
+  background: rgba(17, 17, 18, 0.6);
+  border: 1px solid #1f1f22;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.45);
+  backdrop-filter: blur(2px);
+}
+
+.error-code{
+  font-size: clamp(4rem, 12vw, 10rem);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: .06em;
+  color: var(--accent);
+  text-shadow: 0 4px 20px rgba(229,9,20,.35);
+}
+
+.error-message{
+  margin: 14px 0 24px;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  color: #d0d0d0;
+}
+
+.btn{
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid #b00610;
+  box-shadow: 0 6px 20px rgba(229,9,20,.25);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s;
+}
+.btn:hover{
+  background: #ff1c26;
+  box-shadow: 0 10px 26px rgba(229,9,20,.35);
+  transform: translateY(-1px);
+}

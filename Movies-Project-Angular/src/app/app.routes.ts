@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { NotFount } from './shared/components';
 
 export const routes: Routes = [
     {
@@ -42,6 +43,10 @@ export const routes: Routes = [
         path: 'logout',
         redirectTo: '/home',
         pathMatch: 'full'
+    },
+    {
+        path: '**',
+        component: NotFount
     }
 
 ];
