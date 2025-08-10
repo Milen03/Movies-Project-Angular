@@ -54,7 +54,7 @@ export const routes: Routes = [
     {
         path: 'my-movies',
         canActivate: [authGuard],
-        loadComponent: () => import('./features/movies/my-movies/my-movies').then(c=>c.MyMovies)
+        loadComponent: () => import('./features/profile/my-movies/my-movies').then(c=>c.MyMovies)
     },
     {
         path: '**',

@@ -1,0 +1,12 @@
+<h1>My created movies:  {{currentUser()?.username}}</h1>
+
+<div class="movies-list">
+    
+  <div class="movie-card" *ngFor="let movie of myMovies$ | async " (click)="goToDetails(movie._id)" style="cursor: pointer;">
+    <img [src]="movie.imageUrl" [alt]="movie.title" class="movie-img" />
+    <div class="movie-info">
+      <h3>{{ movie.title }}</h3>
+      <span class="genre">{{ movie.genre }}</span>
+    </div>
+  </div>
+</div>
