@@ -10,6 +10,7 @@
     </ng-container>
     <ng-template #loggedIn>
     <li><a routerLink="/create">Create Movie</a></li>
+    <li><a routerLink="/my-movies">My Movies</a></li>
       <li><a (click)="logout()">Logout</a></li>
       <li class="right"><a routerLink="/profile">{{currentUser()?.username}} profile</a></li>
     </ng-template>

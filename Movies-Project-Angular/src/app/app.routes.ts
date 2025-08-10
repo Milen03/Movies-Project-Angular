@@ -52,6 +52,11 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
+        path: 'my-movies',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/movies/my-movies/my-movies').then(c=>c.MyMovies)
+    },
+    {
         path: '**',
         component: NotFount
     }
