@@ -1,12 +1,24 @@
-<h1>My created movies:  {{currentUser()?.username}}</h1>
+<div class="my-movies-container" *ngIf="myMovies$ | async as movies;">
+  <div *ngIf="movies.length > 0; else noMovies">
+    <h2>My Movies</h2>
+    <div class="movies-list">
 
-<div class="movies-list">
-    
-  <div class="movie-card" *ngFor="let movie of myMovies$ | async " (click)="goToDetails(movie._id)" style="cursor: pointer;">
-    <img [src]="movie.imageUrl" [alt]="movie.title" class="movie-img" />
-    <div class="movie-info">
-      <h3>{{ movie.title }}</h3>
-      <span class="genre">{{ movie.genre }}</span>
+      <div class="movie-card" *ngFor="let movie of movies" [routerLink]="['/movies', movie._id]">
+        <img [src]="movie.imageUrl" [alt]="movie.title" class="movie-img" />
+        <div class="movie-info">
+          <h3>{{ movie.title }}</h3>
+        </div>
+      </div>
     </div>
   </div>
+
 </div>
+
+
+<ng-template #noMovies>
+  <div class="no-movies-message">
+    <p>You haven't created any movies yet.</p>
+    <a routerLink="/create">Create your first movie!</a>
+  </div>
+</ng-template>
+

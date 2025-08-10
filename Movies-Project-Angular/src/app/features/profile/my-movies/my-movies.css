@@ -52,3 +52,30 @@ h1{
     text-align: center;
     margin-bottom: 24px;
 }
+.no-movies-message {
+  text-align: center;
+  margin-top: 50px;
+  padding: 40px;
+  background-color: #181818;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.no-movies-message p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.no-movies-message a {
+  color: #fff;
+  background-color: #e50914;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.no-movies-message a:hover {
+  background-color: #f40612;
+}
