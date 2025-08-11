@@ -35,7 +35,7 @@ ngOnInit(){
 }
 
 goToDetails(id: string) {
-    this.router.navigate(['/movies', id]);
+    this.router.navigate(['/my-movies', id]);
   }
 
 }

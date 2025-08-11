@@ -3,7 +3,7 @@
     <h2>My Movies</h2>
     <div class="movies-list">
 
-      <div class="movie-card" *ngFor="let movie of movies" [routerLink]="['/movies', movie._id]">
+      <div class="movie-card" *ngFor="let movie of movies" [routerLink]="['/my-movies', movie._id]">
         <img [src]="movie.imageUrl" [alt]="movie.title" class="movie-img" />
         <div class="movie-info">
           <h3>{{ movie.title }}</h3>

@@ -57,6 +57,11 @@ export const routes: Routes = [
         loadComponent: () => import('./features/profile/my-movies/my-movies').then(c=>c.MyMovies)
     },
     {
+        path: 'my-movies/:id',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/profile/my-movies-item/my-movies-item').then(c => c.MyMoviesItem)
+    },
+    {
         path: '**',
         component: NotFount
     }
