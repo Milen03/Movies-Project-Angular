@@ -3,11 +3,11 @@ import { AuthService } from '../../../core/service';
 import { Router } from '@angular/router';
 import { MoviesService } from '../../../core/service/movies.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-create',
-  imports: [ReactiveFormsModule,NgIf],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './create.html',
   styleUrl: './create.css'
 })
@@ -16,6 +16,8 @@ private authService = inject(AuthService);
 private router = inject(Router);
 private moviesService = inject(MoviesService);
 private formBuilder = inject(FormBuilder);
+
+ genres: string[] = ['Action', 'Comedy', 'Horror', 'Sci-Fi', 'Drama', 'Thriller'];
 
 createForm: FormGroup = this.formBuilder.group({
     title: ['', [Validators.required, Validators.minLength(2)]],

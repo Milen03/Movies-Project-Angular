@@ -11,7 +11,7 @@ form {
   gap: 16px;
 }
 
-input, textarea {
+input, textarea,select {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #444;
@@ -23,7 +23,7 @@ input, textarea {
   transition: border 0.2s;
 }
 
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
   border: 1.5px solid #e50914;
 }
 

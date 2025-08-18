@@ -2,7 +2,10 @@
   <input formControlName="title" placeholder="Title" />
   <div *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched">Title is required.</div>
 
-  <input formControlName="genre" placeholder="Genre" />
+   <select formControlName="genre">
+    <option value="" disabled>Select a Genre</option>
+    <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+  </select>
   <div *ngIf="createForm.get('genre')?.invalid && createForm.get('genre')?.touched">Genre is required.</div>
 
   <input formControlName="releaseDate" type="date" placeholder="Release Date" />
