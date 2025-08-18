@@ -47,3 +47,27 @@
   font-size: 1rem;
   font-weight: 500;
 }
+/* ... existing css ... */
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.filter-container label {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.filter-container select {
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+  font-size: 1rem;
+  cursor: pointer;
+}

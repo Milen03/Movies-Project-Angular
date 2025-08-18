@@ -1,9 +1,20 @@
+<div class="filter-container">
+  <label for="genre-filter">Filter by Genre:</label>
+  <select id="genre-filter" (change)="onGenreChange($event)">
+    <option value="All">All Genres</option>
+    <option *ngFor="let genre of genres$ | async" [value]="genre">
+      {{ genre }}
+    </option>
+  </select>
+</div>
+
+<!-- Тази част остава същата, защото променихме `movies$` -->
 <div class="movies-list">
-  <div class="movie-card" *ngFor="let movie of movies$ | async" (click)="goToDetails(movie._id)" style="cursor: pointer;">
+  <div class="movie-card" *ngFor="let movie of movies$ | async" (click)="goToDetails(movie._id)">
     <img [src]="movie.imageUrl" [alt]="movie.title" class="movie-img" />
     <div class="movie-info">
       <h3>{{ movie.title }}</h3>
-      <span class="genre">Genre: {{ movie.genre }}</span>
+      <span class="genre">{{ movie.genre }}</span>
     </div>
   </div>
 </div>
